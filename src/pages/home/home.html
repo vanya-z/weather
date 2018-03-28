@@ -1,14 +1,22 @@
 <ion-header>
-  <ion-navbar>
+  <ion-navbar color="{{isNight() ? 'night' : (isDay() ? 'day' : 'light')}}">
     <ion-title>
-      Ionic Blank
+      Weather
     </ion-title>
   </ion-navbar>
 </ion-header>
 
-<ion-content padding>
-  The world is your oyster.
-  <p>
-    If you get lost, the <a href="http://ionicframework.com/docs/v2">docs</a> will be your guide.
-  </p>
+<ion-content [ngClass]="{day: isDay(), night: isNight()}">
+  <animation-mist [@state]="getState('mist')"></animation-mist>
+  <animation-stars [@state]="getState('stars')"></animation-stars>
+  <animation-sun [@state]="getState('sun')"></animation-sun>
+  <animation-moon [@state]="getState('moon')"></animation-moon>
+  <animation-cloud-dark [@state]="getState('cloud-dark')"></animation-cloud-dark>
+  <animation-cloud [@state]="getState('cloud')"></animation-cloud>
+  <animation-snow [@state]="getState('snow')"></animation-snow>
+  <animation-rain [@state]="getState('rain')"></animation-rain>
+  <animation-thunder [@state]="getState('thunder')"></animation-thunder>
+  <animation-city [@name]="weatherData?.name || 'none'"></animation-city>
+  <animation-description [@description]="weatherData?.weather[0]?.description || 'none'"></animation-description>
+  <animation-temperature [@temperature]="weatherData?.main?.temp || 'none'"></animation-temperature>
 </ion-content>

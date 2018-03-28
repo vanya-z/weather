@@ -1,3 +1,33 @@
 page-home {
+  .day {
+    transition: background-color 1.5s ease;
+    background-color: color($colors, day);
+  }
 
+  .night {
+    transition: background-color 1.5s ease;
+    background-color: color($colors, night);
+  }
+
+  .object {
+    position: absolute;
+  }
+
+  .city, .temperature, .description {
+    width: 100%;
+    color: white;
+  }
+
+  .temperature {
+    font-size: 50pt;
+  }
+
+  .city {
+    font-size: 30pt;
+    text-transform: uppercase;
+  }
+
+  .description {
+    font-size: 16pt;
+  }
 }
